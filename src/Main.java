@@ -7,18 +7,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String name="massiv.txt";
-        try {
-            Scanner scanner=new Scanner(new File(name));
-            ArrayList<String> arrayList=new ArrayList<>();
-            String[] massive;
-            while (scanner.hasNextLine()){
-                arrayList.add(scanner.nextLine());
-            } massive=arrayList.get(1).split(" ");
 
-            double[] nMassive=new double[massive.length];
+        try {
+            File file=new File("massiv.txt");
+            Scanner scanner=new Scanner(file);
+            int n=scanner.nextInt();
+            double[] nMassive=new double[n];
             for (int i = 0; i < nMassive.length; i++) {
-                nMassive[i]=Double.valueOf(massive[i]);
+                nMassive[i]=scanner.nextDouble();
             }
             Arrays.sort(nMassive);
             System.out.println(Arrays.toString(nMassive));
